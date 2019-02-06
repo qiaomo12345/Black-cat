@@ -1,0 +1,7 @@
+ls
+cd
+vim
+git  status
+git log
+commit
+git add
