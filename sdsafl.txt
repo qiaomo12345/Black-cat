@@ -1,4 +1,0 @@
-ls  //显示文件内容
-cd <dir> //进入目录
-vim <filename> //编辑内容
-git status  //显示最近修改 //显示新建的文件
