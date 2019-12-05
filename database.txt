@@ -1,0 +1,100 @@
+use master 
+go
+create database BaiweiKitchen
+on
+(
+name='BaiweiKitchen.mdf',filename='D:\2019-12-4项目\项目数据库\BaiweiKitchen.mdf',size=6mb
+)
+go
+use BaiweiKitchen
+go
+--用户表
+create table Userform
+(
+Usname varchar(20) not null,
+Usiphone varchar(30) primary key,
+Usaddress varchar(100) not null,
+Uspassword varchar(30) not null,
+)
+--用户足迹表
+create table UserFootprint
+(
+UFiphone varchar(30),
+UFtime varchar(30) not null,
+UFtimes varchar(30) not null
+)
+--订单表
+create table Orderform
+(
+Orname varchar(50) not null,
+Oriphone varchar(30) foreign key references Userform(Usiphone),
+Ornumber varchar(100) unique not null,
+Ortime1 varchar(30) not null,
+Ortime2 varchar(30) not null,
+)
+--商家表
+create table Merchant
+(
+Mename varchar(20) not null,
+MeShop varchar(30) not null,
+Meiphone varchar(30) primary key,
+Meaddress varchar(100) not null,
+Mepassword varchar(30) not null,
+)
+--店铺表
+create table Shop
+(
+Sname nvarchar(50),
+Siphone varchar(30) foreign key references Merchant(Meiphone),
+Stime1 nvarchar(50),
+Stime2 nvarchar(50),
+)
+--商家足迹表
+create table MerchantFootprint
+(
+MFiphone varchar(30),
+MFtime varchar(30) not null,
+MFtimes varchar(30) not null,
+)
+--商家菜单表
+create table menu
+(
+mename varchar(50) not null,
+meIntroduction varchar(200) not null,
+meprice decimal(8,2) not null,
+menum int not null,
+)
+--足迹表
+create table Footprint
+(
+Fiphone varchar(30) foreign key references Userform(Usiphone),
+Fname varchar(30),
+Ftime varchar(40),
+)
+--收藏表
+create table Favorites
+(
+Faname varchar(50),
+Fatime varchar(50),
+)
+--评价表
+create table Evaluationform
+(
+Ename varchar(50),
+Ename1 varchar(50),
+Euser varchar(40),
+EComment varchar(200),
+)
+--管理员表
+create table Admintable
+(
+AID varchar(30),
+Apassword varchar(30),
+)
+--管理员足迹表
+create table AdminFootprint
+(
+AID varchar(30),
+Aname varchar(50),
+atime1 varchar(50),
+)
