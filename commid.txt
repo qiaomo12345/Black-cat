@@ -1,0 +1,8 @@
+上传文件命令
+git config --global user.email "@qq.com" 确认仓库地址
+git config --global user.name "Black-cat" 确认仓库分支
+git status 查找要上传文件
+git commit -m "需要输入的信息"
+git push -u origin master 正式提交仓库
+下载文件命令
+
