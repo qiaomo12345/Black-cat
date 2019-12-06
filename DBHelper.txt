@@ -1,0 +1,35 @@
+public static string conning = "server=.;database=GameBoxDB;uid=sa;pwd=123456";
+        
+        
+        public static SqlDataReader GetDataReader(string Sql)
+        {
+            SqlConnection conn = new SqlConnection(conning);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(Sql, conn);
+            return cmd.ExecuteReader(CommandBehavior.CloseConnection);
+        }
+        public static DataTable GetDataTable(string Sql)
+        {
+            SqlConnection conn = new SqlConnection(conning);
+            DataTable ds = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(Sql, conn);
+            da.Fill(ds);
+            conn.Close();
+            return ds;
+        }
+        public static bool GetNonQuery(string Sql)
+        {
+            SqlConnection conn = new SqlConnection(conning);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(Sql, conn);
+            return cmd.ExecuteNonQuery() > 0;
+        }
+        public static object GetScalar(string Sql)
+        {
+            SqlConnection conn = new SqlConnection(conning);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(Sql, conn);
+            object result = cmd.ExecuteScalar();
+            conn.Close();
+            return result;
+        }
