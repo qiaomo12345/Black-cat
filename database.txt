@@ -8,6 +8,20 @@ name='BaiweiKitchen.mdf',filename='D:\2019-12-4项目\项目数据库\BaiweiKitchen.mdf
 go
 use BaiweiKitchen
 go
+create table caidan
+(
+cailei varchar(20),
+caipin varchar(20),
+num decimal(20),
+jieshao varchar(50),
+dianpu varchar(50),
+pingjia varchar(30),
+)
+insert into caidan values('川菜','麻婆豆腐',20,'美味的豆腐','川菜大全','五星')
+insert into caidan values('川菜','辣子鸡',24,'火辣辣的感觉','川菜大全','五星')
+insert into caidan values('川菜','铁板豆腐',60,'麻辣的豆腐','川菜大全','五星')
+insert into caidan values('粤菜','白切鸡',40,'口感细腻','特色粤菜','五星')
+select * from caidan where cailei='粤菜'
 --用户表
 create table Userform
 (
@@ -63,6 +77,7 @@ mename varchar(50) not null,
 meIntroduction varchar(200) not null,
 meprice decimal(8,2) not null,
 menum int not null,
+
 )
 --足迹表
 create table Footprint
