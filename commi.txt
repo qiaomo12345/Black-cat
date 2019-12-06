@@ -1,0 +1,4 @@
+taskkill /f /t /im +文件名 //命令关闭应用程序
+eg：
+taskkill /f /t /im qq.exe
+EXIT  //关闭cmd窗体
